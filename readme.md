@@ -135,26 +135,6 @@ class LogoutUsuarioView(LogoutView):
 </html>
 ```
 
-- `templates/login.html`
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-</head>
-<body>
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Entrar</button>
-  </form>
-</body>
-</html>
-```
-
 - `templates/categoria_list.html`
 
 ```html
