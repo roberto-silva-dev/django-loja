@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Produtos{% endblock %}
+{% block content %}
+<h2>Produtos</h2>
+<a href="{% url 'produto_create' %}" class="btn btn-primary mb-3">Novo Produto</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Preço</th>
+      <th>Categoria</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for produto in object_list %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ produto.nome }}</td>
+        <td>R$ {{ produto.preco }}</td>
+        <td>{{ produto.categoria.nome }}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="4">Nenhum produto cadastrado.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

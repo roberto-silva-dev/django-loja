@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Categorias{% endblock %}
+{% block content %}
+<h2>Categorias</h2>
+<a href="{% url 'categoria_create' %}" class="btn btn-primary mb-3">Nova Categoria</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for categoria in object_list %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ categoria.nome }}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="2">Nenhuma categoria cadastrada.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
